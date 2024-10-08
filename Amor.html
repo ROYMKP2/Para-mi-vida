@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lluvia de Corazones</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f8ff;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+    h1 {
+      position: absolute;
+      top: 10%;
+      color: #000000;
+      text-align: center;
+      font-size: 3rem;
+      z-index: 1;
+    }
+    button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px 20px;
+      font-size: 1.5rem;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform 0.3s;
+    }
+    button:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4081;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4081;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Te amo con todo mi corazón ❤️</h1>
+  <button onclick="createHearts()">Haz clic para más amor</button>
+
+  <script>
+    function createHearts() {
+      for (let i = 0; i < 30; i++) {
+        let heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+    }
+  </script>
+</body>
+</html>
