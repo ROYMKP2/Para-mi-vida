@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo siento...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #ff6363;
+            margin: 0;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 20px 0;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff6363;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        button:hover {
+            background-color: #ff4444;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lo siento...</h1>
+        <p>No quise hacerte sentir mal. ¿Me perdonas?</p>
+        <button onclick="forgiveMe()">Aceptar Disculpa</button>
+    </div>
+
+    <script>
+        function forgiveMe() {
+            const container = document.querySelector('.container');
+            container.innerHTML = `
+                <h1>¡Gracias!</h1>
+                <p>Tu perdón significa mucho para mí.</p>
+                <p>Espero que podamos seguir adelante juntos ❤</p>
+            `;
+        }
+    </script>
+</body>
+</html>
